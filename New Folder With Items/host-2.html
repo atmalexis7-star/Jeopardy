@@ -240,7 +240,7 @@ async function init(){
   roomCode=Math.random().toString(36).slice(2,7).toUpperCase();
   gameRef=ref(db,'rooms/'+roomCode);
   await set(gameRef,{state:{started:false,turnIdx:0,used:{},activeQ:null,buzz:null},players:{}});
-  const playerUrl=location.href.replace(/host\.html.*/,'player.html')+'?room='+roomCode;
+  const playerUrl=location.href.replace(/host-2\.html.*|host\.html.*/,'player-2.html')+'?room='+roomCode;
   document.getElementById('rcode').textContent=roomCode;
   document.getElementById('rurl').textContent=playerUrl;
   document.getElementById('qr-img').src=`https://api.qrserver.com/v1/create-qr-code/?size=148x148&data=${encodeURIComponent(playerUrl)}&bgcolor=060918&color=FFD700&margin=2`;
